@@ -1,0 +1,1102 @@
+<!doctype html>
+<html class="default no-js">
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>@atomist/automation-client</title>
+	<meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="assets/css/main.css">
+</head>
+<body>
+<header>
+	<div class="tsd-page-toolbar">
+		<div class="container">
+			<div class="table-wrap">
+				<div class="table-cell" id="tsd-search" data-index="assets/js/search.js" data-base=".">
+					<div class="field">
+						<label for="tsd-search-field" class="tsd-widget search no-caption">Search</label>
+						<input id="tsd-search-field" type="text" />
+					</div>
+					<ul class="results">
+						<li class="state loading">Preparing search index...</li>
+						<li class="state failure">The search index is not available</li>
+					</ul>
+					<a href="index.html" class="title">@atomist/automation-client</a>
+				</div>
+				<div class="table-cell" id="tsd-widgets">
+					<div id="tsd-filter">
+						<a href="#" class="tsd-widget options no-caption" data-toggle="options">Options</a>
+						<div class="tsd-filter-group">
+							<div class="tsd-select" id="tsd-filter-visibility">
+								<span class="tsd-select-label">All</span>
+								<ul class="tsd-select-list">
+									<li data-value="public">Public</li>
+									<li data-value="protected">Public/Protected</li>
+									<li data-value="private" class="selected">All</li>
+								</ul>
+							</div>
+							<input type="checkbox" id="tsd-filter-inherited" checked />
+							<label class="tsd-widget" for="tsd-filter-inherited">Inherited</label>
+							<input type="checkbox" id="tsd-filter-only-exported" />
+							<label class="tsd-widget" for="tsd-filter-only-exported">Only exported</label>
+						</div>
+					</div>
+					<a href="#" class="tsd-widget menu no-caption" data-toggle="menu">Menu</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="tsd-page-title">
+		<div class="container">
+			<ul class="tsd-breadcrumb">
+				<li>
+					<a href="globals.html">Globals</a>
+				</li>
+			</ul>
+			<h1> @atomist/automation-client</h1>
+		</div>
+	</div>
+</header>
+<div class="container container-main">
+	<div class="row">
+		<div class="col-8 col-content">
+			<div class="tsd-panel tsd-typography">
+				<h1 id="-atomist-automation-client">@atomist/automation-client</h1>
+				<p><a href="https://app.atomist.com/workspace/T29E48P34"><img src="http://badge.atomist.com/T29E48P34/atomist/automation-client-ts/bdaca35b-0cb1-4fbf-8596-a27777b46974" alt="atomist sdm goals"></a>
+				<a href="https://www.npmjs.com/package/@atomist/automation-client"><img src="https://img.shields.io/npm/v/@atomist/automation-client.svg" alt="npm version"></a></p>
+				<p><a href="https://nodejs.org/" title="Node.js">Node</a> module <a href="https://www.npmjs.com/package/@atomist/automation-client"><code>@atomist/automation-client</code></a>
+				for creating Atomist development automations.  Development automations take the following forms:</p>
+				<ul>
+					<li>Bot commands - create bot commands using <em>command handlers</em></li>
+					<li>Respond to events - use <em>event handlers</em> to automatically
+						take action when events, like someone commenting on an issue,
+					happen</li>
+					<li>Ingestors - define your own, custom events that you can then take
+					action on</li>
+				</ul>
+				<p>The automation-client provide the ability to run a client that
+					connects to the Atomist API so it can receive and act on commands and
+				events.</p>
+				<p>See <a href="https://atomist.com/" title="Atomist - Development Automation">atomist.com</a> and <a href="https://docs.atomist.com/" title="Atomist Documentation">docs.atomist.com</a> for more
+				detailed information.</p>
+				<h2 id="concepts">Concepts</h2>
+				<p>Atomist is a service and API that enables development automation. The
+					Atomist service builds and maintains a model of the things that matter
+					to your development team. You can then use out of the box automations
+				or build your own automations acting on this model.</p>
+				<p>For more information, please read <a href="docs/Concepts.md">Concepts</a>.</p>
+				<h2 id="getting-started">Getting Started</h2>
+				<p>Please install <a href="https://nodejs.org/" title="Node.js">Node.js</a>.  To verify that the right versions are
+				installed, please run:</p>
+				<pre><code>$ node -v
+v8<span class="hljs-number">.4</span><span class="hljs-number">.0</span>
+$ npm -v
+<span class="hljs-number">5.4</span><span class="hljs-number">.1</span></code></pre><h3 id="using-the-automation-client-module-from-your-project">Using the <code>automation-client</code> module from your project</h3>
+				<p>To start using this module in your Node.js application, you have to add a dependency to it to your <code>package.json</code>
+				by running the following command:</p>
+				<pre><code>$ npm <span class="hljs-keyword">install</span> @atomist/automation-<span class="hljs-keyword">client</span> <span class="hljs-comment">--save</span></code></pre><p>You can find reference documentation at <a href="https://atomist.github.io/automation-client-ts/">https://atomist.github.io/automation-client-ts/</a> .</p>
+				<h3 id="starting-from-a-sample">Starting from a Sample</h3>
+				<p>We also provide a working project with some basic automations that you can use to get started quickly. The repository
+				is at <a href="https://github.com/atomist/automation-seed-ts">atomist/automation-seed-ts</a>.</p>
+				<p>To get started run the following commands:</p>
+				<pre><code><span class="hljs-meta">$</span><span class="bash"> git <span class="hljs-built_in">clone</span> git@github.com:atomist/automation-seed-ts.git</span>
+<span class="hljs-meta">$</span><span class="bash"> <span class="hljs-built_in">cd</span> automation-seed-ts</span>
+<span class="hljs-meta">$</span><span class="bash"> npm install</span></code></pre><p>See the <a href="https://github.com/atomist/automation-seed-ts#readme">automation-seed-ts README</a> for further
+				instructions.</p>
+				<h2 id="implementing-automations">Implementing Automations</h2>
+				<h3 id="command-handlers">Command Handlers</h3>
+				<p>Commands are automations that can be invoked via a Chat bot, curl or web interface.</p>
+				<p>To create a command take a look at the following example:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { CommandHandler, Parameter} <span class="hljs-keyword">from</span> <span class="hljs-string">"@atomist/automation-client/decorators"</span>;
+<span class="hljs-keyword">import</span> { HandleCommand, HandlerContext, HandlerResult } <span class="hljs-keyword">from</span> <span class="hljs-string">"@atomist/automation-client/Handlers"</span>;
+
+<span class="hljs-meta">@CommandHandler</span>(<span class="hljs-string">"Sends a hello back to the client"</span>, <span class="hljs-string">"hello world"</span>)
+<span class="hljs-comment">//                                                   ^ -- defines the command to trigger</span>
+<span class="hljs-comment">//                      "                                 this handler from the bot</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> HelloWorld <span class="hljs-keyword">implements</span> HandleCommand {
+<span class="hljs-comment">//                                 ^ -- a command handler implements the HandleCommand</span>
+<span class="hljs-comment">//                                      interface</span>
+
+    <span class="hljs-meta">@Parameter</span>({ pattern: <span class="hljs-regexp">/^.*$/</span>, required: <span class="hljs-literal">true</span> })
+<span class="hljs-comment">//  ^            ^                ^ -- parameters can be marked required or optional</span>
+<span class="hljs-comment">//  ^            ^ -- the parameter can be validated against a RegExp pattern</span>
+<span class="hljs-comment">//  ^ -- this defines a user-provided parameter named 'name'</span>
+    <span class="hljs-keyword">public</span> name: <span class="hljs-built_in">string</span>;
+
+
+    <span class="hljs-keyword">public</span> handle(ctx: HandlerContext): <span class="hljs-built_in">Promise</span>&lt;HandlerResult&gt; {
+<span class="hljs-comment">//  ^             ^ -- HandlerContext provides access to a 'MessageClient' for sending</span>
+<span class="hljs-comment">//  ^                  messages to the bot as well as a 'GraphClient' to query your</span>
+<span class="hljs-comment">//  ^                  data using GraphQL</span>
+<span class="hljs-comment">//  ^ -- this method is the body of the handler and where the actual code goes</span>
+        <span class="hljs-keyword">return</span> ctx.messageClient.respond(<span class="hljs-string">`Hello <span class="hljs-subst">${this.name}</span>`</span>)
+<span class="hljs-comment">//                               ^ -- Calling 'respond' on the 'MessageClient' will</span>
+<span class="hljs-comment">//                                    send a message back to wherever that command</span>
+<span class="hljs-comment">//                                    is invoked from (eg. a DM with @atomist in Slack)</span>
+            .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve({ code: <span class="hljs-number">0</span> });
+<span class="hljs-comment">//                                     ^ -- Command handlers are expected to return a</span>
+<span class="hljs-comment">//                                          'Promise' of type 'HandlerResult' which</span>
+<span class="hljs-comment">//                                          just defines a return code. Nonzero</span>
+<span class="hljs-comment">//                                          return codes indicate errors.</span>
+            });
+    }
+}</code></pre>
+				<p>The above declares a simple bot command that can be invoked via <code>@atomist hello world</code>. The command takes one
+				parameter called <code>name</code>. The handler will respond with a simple greeting message.</p>
+				<p>For more information, please see <a href="docs/CommandHandlers.md">Command Handlers</a>.</p>
+				<h3 id="event-handlers">Event Handlers</h3>
+				<p>Event handlers are automations that allow handling of events based on registered GraphQL subscriptions.</p>
+				<p>To create a event handler take a look at the following example:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { EventFired, EventHandler, HandleEvent, HandlerContext, HandlerResult }
+    <span class="hljs-keyword">from</span> <span class="hljs-string">"@atomist/automation-client/Handlers"</span>;
+
+<span class="hljs-meta">@EventHandler</span>(<span class="hljs-string">"Notify channel on new issue"</span>, <span class="hljs-string">`subscription HelloIssue {
+    Issue {
+      number
+      title
+      repo {
+        channels {
+          name
+        }
+      }
+     }
+}`</span>)
+<span class="hljs-comment">//                                            ^ -- This is GraphQL subscription you want</span>
+<span class="hljs-comment">//                                                 to match to trigger your handler.</span>
+<span class="hljs-comment">//                                                 Queries can also be externalized.</span>
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">class</span> HelloIssue <span class="hljs-keyword">implements</span> HandleEvent&lt;<span class="hljs-built_in">any</span>&gt; {
+<span class="hljs-comment">//                                 ^ -- an event handler implements the 'HandleEvent'</span>
+<span class="hljs-comment">//                                      interface</span>
+
+    <span class="hljs-keyword">public</span> handle(e: EventFired&lt;<span class="hljs-built_in">any</span>&gt;, ctx: HandlerContext): <span class="hljs-built_in">Promise</span>&lt;HandlerResult&gt; {
+<span class="hljs-comment">//                ^                   ^ -- 'HandlerContext' gives access to</span>
+<span class="hljs-comment">//                ^                        'MessageClient' and 'GraphClient'</span>
+<span class="hljs-comment">//                ^ -- 'EventFired' gives you access to the data that matched the</span>
+<span class="hljs-comment">//                     subscription. Since GraphQL queries return JSON it is very easy</span>
+<span class="hljs-comment">//                     to work with the data in JavaScript/TypeScript</span>
+
+        <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.all(e.data.Issue.map(<span class="hljs-function"><span class="hljs-params">i</span> =&gt;</span>
+            ctx.messageClient.addressChannels(<span class="hljs-string">`Got a new issue \`<span class="hljs-subst">${i.number}</span># <span class="hljs-subst">${i.title}</span>\``</span>,
+<span class="hljs-comment">//                            ^ -- besides responding, you can address users and</span>
+<span class="hljs-comment">//                                 channels in Slack by using the respective methods</span>
+<span class="hljs-comment">//                                 on 'MessageClient'</span>
+
+                i.repo.channels.map(<span class="hljs-function"><span class="hljs-params">c</span> =&gt;</span> c.name))))
+<span class="hljs-comment">//              ^ -- in our correlated data model, repositories can be mapped to</span>
+<span class="hljs-comment">//                   channels in a chat team. This will effectively send a message</span>
+<span class="hljs-comment">//                   into each mapped channel</span>
+            .then(<span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> {
+                <span class="hljs-keyword">return</span> <span class="hljs-built_in">Promise</span>.resolve({ code: <span class="hljs-number">0</span> });
+<span class="hljs-comment">//                                     ^ -- Event handlers are expected to return a</span>
+<span class="hljs-comment">//                                          'HandlerResult'. Nonzero code indicate</span>
+<span class="hljs-comment">//                                          error occurred</span>
+            });
+    }
+}</code></pre>
+				<p>This event handler registers a GraphQL subscription on the <code>Issue</code> type. On <code>Issue</code> events the handler will
+				send a simple message back to the associated slack team.</p>
+				<p>For more information, please see <a href="docs/EventHandlers.md">Event Handlers</a>.</p>
+				<h3 id="register-handlers">Register Handlers</h3>
+				<p>In order to register your handlers with the automation-client, please create a file called <code>atomist.config.ts</code> and put
+				the following contents into it:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">import</span> { Configuration } <span class="hljs-keyword">from</span> <span class="hljs-string">"@atomist/automation-client/configuration"</span>;
+
+<span class="hljs-keyword">import</span> { HelloWorld } <span class="hljs-keyword">from</span> <span class="hljs-string">"./commands/HelloWorld"</span>;
+<span class="hljs-keyword">import</span> { HelloIssue } <span class="hljs-keyword">from</span> <span class="hljs-string">"./events/HelloIssue"</span>;
+
+<span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> configuration: Configuration = {
+<span class="hljs-comment">//                          ^ -- 'Configuration' defines all configuration options</span>
+
+    name: <span class="hljs-string">"your_module_name"</span>,
+<span class="hljs-comment">//  ^ -- each automation-client should have a unique name</span>
+
+    version: <span class="hljs-string">"0.0.1"</span>,
+<span class="hljs-comment">//  ^ -- and a semver version</span>
+
+    teamIds: [<span class="hljs-string">"T29E48P34"</span>],
+<span class="hljs-comment">//  ^ -- the ids of your chat teams which you can get by running '@atomist pwd'</span>
+<span class="hljs-comment">//       leave empty to use your user defaults saved by atomist-config</span>
+
+    commands: [
+<span class="hljs-comment">//  ^ -- register all your command handlers</span>
+        () =&gt; <span class="hljs-keyword">new</span> HelloWorld(),
+    ],
+
+    events: [
+        <span class="hljs-function"><span class="hljs-params">()</span> =&gt;</span> <span class="hljs-keyword">new</span> HelloIssue(),
+    ],
+<span class="hljs-comment">//  ^ -- the same for event handlers</span>
+
+    token: process.env.GITHUB_TOKEN || <span class="hljs-string">"34563sdf......................wq455eze"</span>,
+<span class="hljs-comment">//  ^ -- configure a GitHub personal access token with read:org scope; this is used to</span>
+<span class="hljs-comment">//       authenticate the automation-client with Atomist to make sure the client should</span>
+<span class="hljs-comment">//       be granted access to the ingested data and chat team; leave null/undefined</span>
+<span class="hljs-comment">//       to use your user default saved by atomist-config</span>
+};</code></pre>
+				<p>This file allows you to register your handlers as well as to specify name and version for your automation-client.</p>
+				<h2 id="running-the-automation-client">Running the Automation-Client</h2>
+				<p>There are several ways you can run your automation-client and have it connect to Atomist API.</p>
+				<h3 id="running-locally">Running Locally</h3>
+				<p>To start up the client locally and have it listen to incoming events, just run:</p>
+				<pre><code>$ atomist <span class="hljs-literal">start</span></code></pre><h3 id="pushing-to-cloud-foundry">Pushing to Cloud Foundry</h3>
+				<p>To prepare for your automation-client to run on any Cloud Foundry
+					instance, please make sure that you have an account on an instance of
+					Cloud Foundry and that you have the Cloud Foundry CLI installed,
+				configured and logged in.</p>
+				<p>First you need to create a <code>manifest.yml</code> in the root of your node
+				project. Put the following minimum content into the file:</p>
+				<pre><code>
+<span class="hljs-attr">applications:</span>
+<span class="hljs-attr">- name:</span> <span class="hljs-string">YOUR_APP_NAME</span>
+<span class="hljs-attr">  command:</span> <span class="hljs-string">$(npm</span> <span class="hljs-string">bin)/atomist-client</span>
+<span class="hljs-attr">  memory:</span> <span class="hljs-number">128</span><span class="hljs-string">M</span>
+<span class="hljs-attr">  buildpack:</span> <span class="hljs-attr">https://github.com/cloudfoundry/nodejs-buildpack</span>
+<span class="hljs-attr">  env:</span>
+<span class="hljs-attr">    GITHUB_TOKEN:</span> <span class="hljs-string">&lt;your</span> <span class="hljs-string">GITHUB_TOKEN&gt;</span>
+<span class="hljs-attr">    SUPPRESS_NO_CONFIG_WARNING:</span> <span class="hljs-literal">true</span></code></pre><p>There more recommended ways for getting your <code>GITHUB_TOKEN</code> into your automation-client instance.
+				Take a look at <a href="https://www.npmjs.com/package/cfenv"><code>cfenv</code></a> for example</p>
+				<p>Next please add an <code>&quot;engines&quot;</code> top-level entry to your <code>package.json</code>
+				like the following:</p>
+				<pre><code class="language-javascript">  <span class="hljs-string">"engines"</span>: {
+    <span class="hljs-string">"node"</span>: <span class="hljs-string">"8.x.x"</span>,
+    <span class="hljs-string">"npm"</span>: <span class="hljs-string">"5.x.x"</span>
+  }</code></pre>
+				<p>Now you&#39;re ready to <code>cf push</code> your automation server to Cloud Foundry:</p>
+				<pre><code>$ <span class="hljs-built_in">cf</span> <span class="hljs-built_in">push</span></code></pre><h2 id="rest-apis">REST APIs</h2>
+				<p>When starting up, the <code>automation-client</code> exposes a couple of endpoints that can be accessed via HTTP.</p>
+				<h3 id="authentication">Authentication</h3>
+				<p>The endpoints are protected by HTTP Basic Auth or token-based authentication. When starting the client, you&#39;ll see
+				a log message of the following format:</p>
+				<pre><code><span class="hljs-number">2017</span><span class="hljs-number">-09</span><span class="hljs-number">-20</span>T08:<span class="hljs-number">22</span>:<span class="hljs-number">32.789</span>Z - <span class="hljs-keyword">info</span>    : Auto-<span class="hljs-keyword">generated</span> credentials <span class="hljs-keyword">for</span> web endpoints are <span class="hljs-keyword">user</span> <span class="hljs-string">'admin'</span> <span class="hljs-keyword">and</span> <span class="hljs-keyword">password</span> <span class="hljs-string">'4d6390d1-de5c-6764-a078-7308503ddba5'</span></code></pre><p>By default the automation-client auto-generates some credentials for you use. To configure your own credentials, change
+				<code>atomist.config.ts</code> and put a following section in:</p>
+				<pre><code class="language-typescript"><span class="hljs-keyword">export</span> <span class="hljs-keyword">const</span> configuration: Configuration = {
+    ...
+    http: {
+        enabled: <span class="hljs-literal">true</span>,
+        auth: {
+            basic: {
+                enabled: <span class="hljs-literal">true</span>,
+                username: <span class="hljs-string">"some user"</span>,
+                password: <span class="hljs-string">"some password"</span>,
+            },
+        },
+    },
+};</code></pre>
+				<h3 id="endpoints">Endpoints</h3>
+				<h4 id="get-management-endpoints">GET Management Endpoints</h4>
+				<table>
+					<thead>
+						<tr>
+							<th>Path</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>/metrics</code></td>
+							<td>exposes metrics around command, event handler executions</td>
+						</tr>
+						<tr>
+							<td><code>/health</code></td>
+							<td>endpoint that exposes health information of the automation client</td>
+						</tr>
+						<tr>
+							<td><code>/registration</code></td>
+							<td>metadata of all available automations</td>
+						</tr>
+						<tr>
+							<td><code>/info</code></td>
+							<td>exposes information about this automation client</td>
+						</tr>
+						<tr>
+							<td><code>/log/commands</code></td>
+							<td>all incoming request for running command handlers</td>
+						</tr>
+						<tr>
+							<td><code>/log/events</code></td>
+							<td>all incoming events for event handlers</td>
+						</tr>
+						<tr>
+							<td><code>/log/messages</code></td>
+							<td>all outgoing messages sent by handlers</td>
+						</tr>
+				</tbody></table>
+				<p>As an example, here is an a command to get the current metrics:</p>
+				<pre><code>$ curl -X GET \
+     http:<span class="hljs-comment">//localhost:2866/metrics \</span>
+     -H 'authorization: Bearer <span class="hljs-number">3456</span>3sdf......................wq455eze"' \
+     -H 'content-type: application/json'</code></pre><p>The above endpoints are all HTTP GET and take bearer and basic auth per default. See below for more details about
+				authentication.</p>
+				<h4 id="invoking-a-command-handler">Invoking a command handler</h4>
+				<p>Command handlers can be invoked via a HTTP POST with the following payload:</p>
+				<pre><code>$ curl -X POST \
+    http:<span class="hljs-comment">//localhost:2866/command \</span>
+    -H 'content-<span class="hljs-class"><span class="hljs-keyword">type</span>: <span class="hljs-title">application</span>/<span class="hljs-title">json</span>' \</span>
+    -H 'authorization: Bearer <span class="hljs-number">34563</span>sdf......................wq455eze<span class="hljs-string">"'
+    -d '{
+          "</span>parameters<span class="hljs-string">": [{
+            "</span>name<span class="hljs-string">": "</span>name<span class="hljs-string">",
+            "</span>value<span class="hljs-string">": "</span>cd<span class="hljs-string">"
+          }],
+          "</span>mapped_parameters<span class="hljs-string">": [{
+            "</span>name<span class="hljs-string">": "</span>sender<span class="hljs-string">",
+            "</span>value<span class="hljs-string">": "</span>kipz<span class="hljs-string">"
+          },{
+            "</span>name<span class="hljs-string">": "</span>userName<span class="hljs-string">",
+            "</span>value<span class="hljs-string">": "</span>cd<span class="hljs-string">"
+          }],
+          "</span>secrets<span class="hljs-string">": [{
+              "</span>uri<span class="hljs-string">": "</span>github:<span class="hljs-comment">//user_token?scopes=repo",</span>
+              <span class="hljs-string">"value"</span>:<span class="hljs-string">"4...d"</span>
+          }],
+          <span class="hljs-string">"command"</span>: <span class="hljs-string">"HelloWorld"</span>,
+          <span class="hljs-string">"correlation_id"</span>: <span class="hljs-string">"6cb72bf7-77b4-4939-b892-00000701fa53"</span>,
+          <span class="hljs-string">"team"</span>: {
+            <span class="hljs-string">"id"</span>: <span class="hljs-string">"T1L0VDKJP"</span>,
+            <span class="hljs-string">"name"</span>: <span class="hljs-string">"Atomist QA"</span>
+          },
+          <span class="hljs-string">"api_version"</span>: <span class="hljs-string">"1"</span>
+        }'</code></pre><h2 id="support">Support</h2>
+				<p>General support questions should be discussed in the <code>#support</code>
+					channel on our community Slack team
+				at <a href="https://join.atomist.com/" title="Atomist Community Slack">atomist-community.slack.com</a>.</p>
+				<p>If you find a problem, please create an <a href="https://github.com/atomist/automation-client-ts/issues">issue</a>.</p>
+				<h2 id="development">Development</h2>
+				<p>You will need to install <a href="https://nodejs.org/" title="Node.js">node</a> to build and test this project.</p>
+				<p>To run tests, define a GITHUB_TOKEN to any valid token that has repo access. The tests
+				will create and delete repositories.</p>
+				<p>Define GITHUB_VISIBILITY=public if you want these to be public; default is private.
+				You&#39;ll get a 422 response from repo creation if you don&#39;t pay for private repos.</p>
+				<h3 id="build-and-test">Build and Test</h3>
+				<table>
+					<thead>
+						<tr>
+							<th>Command</th>
+							<th>Reason</th>
+						</tr>
+					</thead>
+					<tbody><tr>
+							<td><code>npm install</code></td>
+							<td>install all the required packages</td>
+						</tr>
+						<tr>
+							<td><code>npm run build</code></td>
+							<td>lint, compile, and test</td>
+						</tr>
+						<tr>
+							<td><code>npm start</code></td>
+							<td>start the Atomist automation client</td>
+						</tr>
+						<tr>
+							<td><code>npm run autostart</code></td>
+							<td>run the client, refreshing when files change</td>
+						</tr>
+						<tr>
+							<td><code>npm run lint</code></td>
+							<td>run tslint against the TypeScript</td>
+						</tr>
+						<tr>
+							<td><code>npm run compile</code></td>
+							<td>compile all TypeScript into JavaScript</td>
+						</tr>
+						<tr>
+							<td><code>npm test</code></td>
+							<td>run tests and ensure everything is working</td>
+						</tr>
+						<tr>
+							<td><code>npm run autotest</code></td>
+							<td>run tests continuously</td>
+						</tr>
+						<tr>
+							<td><code>npm run clean</code></td>
+							<td>remove stray compiled JavaScript files and build directory</td>
+						</tr>
+				</tbody></table>
+				<h3 id="release">Release</h3>
+				<p>To create a new release of the project, we push a button on the Atomist lifecycle message
+				in the #automation-client-ts <a href="https://atomist-community.slack.com/messages/C74J6MFL0/">channel</a> in Atomist Community Slack.</p>
+				<hr>
+				<p>Created by <a href="https://atomist.com/" title="Atomist - Development Automation">Atomist</a>.
+				Need Help?  <a href="https://join.atomist.com/" title="Atomist Community Slack">Join our Slack team</a>.</p>
+			</div>
+		</div>
+		<div class="col-4 col-menu menu-sticky-wrap menu-highlight">
+			<nav class="tsd-navigation primary">
+				<ul>
+					<li class="globals  ">
+						<a href="globals.html"><em>Globals</em></a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_index_.html">"index"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_handlecommand_.html">"lib/<wbr>Handle<wbr>Command"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_handleevent_.html">"lib/<wbr>Handle<wbr>Event"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_handlercontext_.html">"lib/<wbr>Handler<wbr>Context"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_handlerresult_.html">"lib/<wbr>Handler<wbr>Result"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_smartparameters_.html">"lib/<wbr>Smart<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_action_actionresult_.html">"lib/action/<wbr>Action<wbr>Result"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_action_actionops_.html">"lib/action/action<wbr>Ops"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_atomistwebhook_.html">"lib/atomist<wbr>Webhook"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_automationclient_.html">"lib/automation<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_configuration_.html">"lib/configuration"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_decorators_.html">"lib/decorators"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_globals_.html">"lib/globals"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_graph_apollographclient_.html">"lib/graph/<wbr>Apollo<wbr>Graph<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_graph_apollographclientfactory_.html">"lib/graph/<wbr>Apollo<wbr>Graph<wbr>Client<wbr>Factory"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_graph_graphql_.html">"lib/graph/graphQL"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_common_abstractscriptedflushable_.html">"lib/internal/common/<wbr>Abstract<wbr>Scripted<wbr>Flushable"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_common_flushable_.html">"lib/internal/common/<wbr>Flushable"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_env_nodeconfigsecretresolver_.html">"lib/internal/env/<wbr>Node<wbr>Config<wbr>Secret<wbr>Resolver"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_env_applicationevent_.html">"lib/internal/env/application<wbr>Event"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_env_gitinfo_.html">"lib/internal/env/git<wbr>Info"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_event_inmemoryeventstore_.html">"lib/internal/event/<wbr>InMemory<wbr>Event<wbr>Store"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_graph_graphql_.html">"lib/internal/graph/graphQL"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_invoker_invoker_.html">"lib/internal/invoker/<wbr>Invoker"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_invoker_payload_.html">"lib/internal/invoker/<wbr>Payload"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_invoker_disposable_.html">"lib/internal/invoker/disposable"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_message_consolemessageclient_.html">"lib/internal/message/<wbr>Console<wbr>Message<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_message_debugmessageclient_.html">"lib/internal/message/<wbr>Debug<wbr>Message<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_metadata_metadatastore_.html">"lib/internal/metadata/<wbr>Metadata<wbr>Store"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_metadata_decoratorsupport_.html">"lib/internal/metadata/decorator<wbr>Support"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_metadata_metadata_.html">"lib/internal/metadata/metadata"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_metadata_metadatareading_.html">"lib/internal/metadata/metadata<wbr>Reading"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_parameterpopulation_.html">"lib/internal/parameter<wbr>Population"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_abstractrequestprocessor_.html">"lib/internal/transport/<wbr>Abstract<wbr>Request<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_eventstoringautomationeventlistener_.html">"lib/internal/transport/<wbr>Event<wbr>Storing<wbr>Automation<wbr>Event<wbr>Listener"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_metricenabledautomationeventlistener_.html">"lib/internal/transport/<wbr>Metric<wbr>Enabled<wbr>Automation<wbr>Event<wbr>Listener"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_requestprocessor_.html">"lib/internal/transport/<wbr>Request<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_cluster_clustermasterrequestprocessor_.html">"lib/internal/transport/cluster/<wbr>Cluster<wbr>Master<wbr>Request<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_cluster_clusterworkerrequestprocessor_.html">"lib/internal/transport/cluster/<wbr>Cluster<wbr>Worker<wbr>Request<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_cluster_messages_.html">"lib/internal/transport/cluster/messages"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_express_expressrequestprocessor_.html">"lib/internal/transport/express/<wbr>Express<wbr>Request<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_express_expressserver_.html">"lib/internal/transport/express/<wbr>Express<wbr>Server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_showstartupmessages_.html">"lib/internal/transport/show<wbr>Startup<wbr>Messages"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_websocket_defaultwebsocketrequestprocessor_.html">"lib/internal/transport/websocket/<wbr>Default<wbr>Web<wbr>Socket<wbr>Request<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_websocket_websocketclient_.html">"lib/internal/transport/websocket/<wbr>Web<wbr>Socket<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_websocket_websocketlifecycle_.html">"lib/internal/transport/websocket/<wbr>Web<wbr>Socket<wbr>Lifecycle"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_websocket_websocketmessageclient_.html">"lib/internal/transport/websocket/<wbr>Web<wbr>Socket<wbr>Message<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_websocket_websocketrequestprocessor_.html">"lib/internal/transport/websocket/<wbr>Web<wbr>Socket<wbr>Request<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_transport_websocket_payloads_.html">"lib/internal/transport/websocket/payloads"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_deferred_.html">"lib/internal/util/<wbr>Deferred"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_async_.html">"lib/internal/util/async"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_base64_.html">"lib/internal/util/base64"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_cls_.html">"lib/internal/util/cls"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_config_.html">"lib/internal/util/config"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_health_.html">"lib/internal/util/health"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_http_.html">"lib/internal/util/http"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_info_.html">"lib/internal/util/info"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_memory_.html">"lib/internal/util/memory"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_metric_.html">"lib/internal/util/metric"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_poll_.html">"lib/internal/util/poll"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_shutdown_.html">"lib/internal/util/shutdown"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_internal_util_string_.html">"lib/internal/util/string"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_metadata_automationmetadata_.html">"lib/metadata/automation<wbr>Metadata"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_metadata_parameterutils_.html">"lib/metadata/parameter<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_oncommand_.html">"lib/on<wbr>Command"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_onevent_.html">"lib/on<wbr>Event"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_commanddetails_.html">"lib/operations/<wbr>Command<wbr>Details"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_abstractremotereporef_.html">"lib/operations/common/<wbr>Abstract<wbr>Remote<wbr>Repo<wbr>Ref"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_basicauthcredentials_.html">"lib/operations/common/<wbr>Basic<wbr>Auth<wbr>Credentials"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_bitbucketreporef_.html">"lib/operations/common/<wbr>Bit<wbr>Bucket<wbr>Repo<wbr>Ref"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_bitbucketserverreporef_.html">"lib/operations/common/<wbr>Bit<wbr>Bucket<wbr>Server<wbr>Repo<wbr>Ref"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_githubreporef_.html">"lib/operations/common/<wbr>Git<wbr>Hub<wbr>Repo<wbr>Ref"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_gitlabprivatetokencredentials_.html">"lib/operations/common/<wbr>Gitlab<wbr>Private<wbr>Token<wbr>Credentials"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_gitlabreporef_.html">"lib/operations/common/<wbr>Gitlab<wbr>Repo<wbr>Ref"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_projectoperationcredentials_.html">"lib/operations/common/<wbr>Project<wbr>Operation<wbr>Credentials"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_repoid_.html">"lib/operations/common/<wbr>Repo<wbr>Id"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_sourcelocation_.html">"lib/operations/common/<wbr>Source<wbr>Location"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_defaultrepoloader_.html">"lib/operations/common/default<wbr>Repo<wbr>Loader"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_fromprojectlist_.html">"lib/operations/common/from<wbr>Project<wbr>List"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_githubrepoloader_.html">"lib/operations/common/git<wbr>Hub<wbr>Repo<wbr>Loader"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_gitlabrepoloader_.html">"lib/operations/common/gitlab<wbr>Repo<wbr>Loader"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_localrepoloader_.html">"lib/operations/common/local<wbr>Repo<wbr>Loader"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_alwaysaskrepoparameters_.html">"lib/operations/common/params/<wbr>Always<wbr>Ask<wbr>Repo<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_baseeditororreviewerparameters_.html">"lib/operations/common/params/<wbr>Base<wbr>Editor<wbr>OrReviewer<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_credentialed_.html">"lib/operations/common/params/<wbr>Credentialed"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_editoneorallparameters_.html">"lib/operations/common/params/<wbr>Edit<wbr>One<wbr>OrAll<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_fallbackparams_.html">"lib/operations/common/params/<wbr>Fallback<wbr>Params"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_githubfallbackreposparameters_.html">"lib/operations/common/params/<wbr>Git<wbr>Hub<wbr>Fallback<wbr>Repos<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_githubsourcerepoparameters_.html">"lib/operations/common/params/<wbr>Git<wbr>Hub<wbr>Source<wbr>Repo<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_githubtargetsparams_.html">"lib/operations/common/params/<wbr>Git<wbr>Hub<wbr>Targets<wbr>Params"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_gitlabtargetsparams_.html">"lib/operations/common/params/<wbr>Gitlab<wbr>Targets<wbr>Params"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_mappedrepoparameters_.html">"lib/operations/common/params/<wbr>Mapped<wbr>Repo<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_remotelocator_.html">"lib/operations/common/params/<wbr>Remote<wbr>Locator"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_sourcerepoparameters_.html">"lib/operations/common/params/<wbr>Source<wbr>Repo<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_targetsparams_.html">"lib/operations/common/params/<wbr>Targets<wbr>Params"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_params_validationpatterns_.html">"lib/operations/common/params/validation<wbr>Patterns"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_projectaction_.html">"lib/operations/common/project<wbr>Action"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_repofilter_.html">"lib/operations/common/repo<wbr>Filter"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_repofinder_.html">"lib/operations/common/repo<wbr>Finder"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_repoloader_.html">"lib/operations/common/repo<wbr>Loader"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_common_repoutils_.html">"lib/operations/common/repo<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_edit_editall_.html">"lib/operations/edit/edit<wbr>All"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_edit_editmodes_.html">"lib/operations/edit/edit<wbr>Modes"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_edit_editortocommand_.html">"lib/operations/edit/editor<wbr>ToCommand"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_edit_projecteditor_.html">"lib/operations/edit/project<wbr>Editor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_edit_projecteditorops_.html">"lib/operations/edit/project<wbr>Editor<wbr>Ops"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_baseseeddrivengeneratorparameters_.html">"lib/operations/generate/<wbr>Base<wbr>Seed<wbr>Driven<wbr>Generator<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_githubrepocreationparameters_.html">"lib/operations/generate/<wbr>Git<wbr>Hub<wbr>Repo<wbr>Creation<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_gitlabrepocreationparameters_.html">"lib/operations/generate/<wbr>Gitlab<wbr>Repo<wbr>Creation<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_newrepocreationparameters_.html">"lib/operations/generate/<wbr>New<wbr>Repo<wbr>Creation<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_repocreationparameters_.html">"lib/operations/generate/<wbr>Repo<wbr>Creation<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_seeddrivengeneratorparameters_.html">"lib/operations/generate/<wbr>Seed<wbr>Driven<wbr>Generator<wbr>Parameters"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_generatorutils_.html">"lib/operations/generate/generator<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_githubprojectpersister_.html">"lib/operations/generate/git<wbr>Hub<wbr>Project<wbr>Persister"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_generate_remotegitprojectpersister_.html">"lib/operations/generate/remote<wbr>Git<wbr>Project<wbr>Persister"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_review_reviewresult_.html">"lib/operations/review/<wbr>Review<wbr>Result"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_review_issueraisingreviewrouter_.html">"lib/operations/review/issue<wbr>Raising<wbr>Review<wbr>Router"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_review_projectreviewer_.html">"lib/operations/review/project<wbr>Reviewer"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_review_reviewall_.html">"lib/operations/review/review<wbr>All"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_review_reviewertocommand_.html">"lib/operations/review/reviewer<wbr>ToCommand"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_support_contextutils_.html">"lib/operations/support/context<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_support_editorutils_.html">"lib/operations/support/editor<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_tagger_tagger_.html">"lib/operations/tagger/<wbr>Tagger"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_operations_tagger_taggerhandler_.html">"lib/operations/tagger/tagger<wbr>Handler"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_file_.html">"lib/project/<wbr>File"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_project_.html">"lib/project/<wbr>Project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_diff_action_.html">"lib/project/diff/<wbr>Action"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_diff_chain_.html">"lib/project/diff/<wbr>Chain"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_diff_changes_.html">"lib/project/diff/<wbr>Changes"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_diff_differ_.html">"lib/project/diff/<wbr>Differ"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_diff_differenceengine_.html">"lib/project/diff/<wbr>Difference<wbr>Engine"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_diff_extractor_.html">"lib/project/diff/<wbr>Extractor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_fileglobs_.html">"lib/project/file<wbr>Globs"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_fingerprint_fingerprint_.html">"lib/project/fingerprint/<wbr>Fingerprint"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_git_configurable_.html">"lib/project/git/<wbr>Configurable"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_git_gitcommandgitproject_.html">"lib/project/git/<wbr>Git<wbr>Command<wbr>Git<wbr>Project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_git_gitproject_.html">"lib/project/git/<wbr>Git<wbr>Project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_git_gitstatus_.html">"lib/project/git/git<wbr>Status"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_local_localfile_.html">"lib/project/local/<wbr>Local<wbr>File"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_local_localproject_.html">"lib/project/local/<wbr>Local<wbr>Project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_local_nodefslocalfile_.html">"lib/project/local/<wbr>Node<wbr>FsLocal<wbr>File"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_local_nodefslocalproject_.html">"lib/project/local/<wbr>Node<wbr>FsLocal<wbr>Project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_mem_inmemoryfile_.html">"lib/project/mem/<wbr>InMemory<wbr>File"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_mem_inmemoryproject_.html">"lib/project/mem/<wbr>InMemory<wbr>Project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_support_abstractfile_.html">"lib/project/support/<wbr>Abstract<wbr>File"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_support_abstractproject_.html">"lib/project/support/<wbr>Abstract<wbr>Project"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_support_projectutils_.html">"lib/project/support/project<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_util_diagnosticutils_.html">"lib/project/util/diagnostic<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_util_jsonutils_.html">"lib/project/util/json<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_util_parseutils_.html">"lib/project/util/parse<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_util_projectinvariants_.html">"lib/project/util/project<wbr>Invariants"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_util_projectutils_.html">"lib/project/util/project<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_project_util_sourcelocationutils_.html">"lib/project/util/source<wbr>Location<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_scan_.html">"lib/scan"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_schema_schema_.html">"lib/schema/schema"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_schema_schema_cortex_.html">"lib/schema/schema.cortex"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_secured_.html">"lib/secured"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_server_abstractautomationserver_.html">"lib/server/<wbr>Abstract<wbr>Automation<wbr>Server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_server_automationeventlistener_.html">"lib/server/<wbr>Automation<wbr>Event<wbr>Listener"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_server_automationserver_.html">"lib/server/<wbr>Automation<wbr>Server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_server_buildableautomationserver_.html">"lib/server/<wbr>Buildable<wbr>Automation<wbr>Server"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_clone_cachingdirectorymanager_.html">"lib/spi/clone/<wbr>Caching<wbr>Directory<wbr>Manager"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_clone_directorymanager_.html">"lib/spi/clone/<wbr>Directory<wbr>Manager"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_clone_stabledirectorymanager_.html">"lib/spi/clone/<wbr>Stable<wbr>Directory<wbr>Manager"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_clone_tmpdirectorymanager_.html">"lib/spi/clone/tmp<wbr>Directory<wbr>Manager"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_env_metadataprocessor_.html">"lib/spi/env/<wbr>Metadata<wbr>Processor"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_env_secretresolver_.html">"lib/spi/env/<wbr>Secret<wbr>Resolver"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_event_eventstore_.html">"lib/spi/event/<wbr>Event<wbr>Store"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_graph_graphclient_.html">"lib/spi/graph/<wbr>Graph<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_graph_graphclientfactory_.html">"lib/spi/graph/<wbr>Graph<wbr>Client<wbr>Factory"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_http_axioshttpclient_.html">"lib/spi/http/axios<wbr>Http<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_http_curlhttpclient_.html">"lib/spi/http/curl<wbr>Http<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_http_httpclient_.html">"lib/spi/http/http<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_http_wsclient_.html">"lib/spi/http/ws<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_message_messageclient_.html">"lib/spi/message/<wbr>Message<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_message_messageclientsupport_.html">"lib/spi/message/<wbr>Message<wbr>Client<wbr>Support"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_statsd_statsd_.html">"lib/spi/statsd/statsd"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_spi_statsd_statsdclient_.html">"lib/spi/statsd/statsd<wbr>Client"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_locatedtreenode_.html">"lib/tree/<wbr>Located<wbr>Tree<wbr>Node"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_filehits_.html">"lib/tree/ast/<wbr>File<wbr>Hits"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_fileparser_.html">"lib/tree/ast/<wbr>File<wbr>Parser"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_fileparserregistry_.html">"lib/tree/ast/<wbr>File<wbr>Parser<wbr>Registry"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_astutils_.html">"lib/tree/ast/ast<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_matchtesters_.html">"lib/tree/ast/match<wbr>Testers"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_microgrammar_microgrammarbasedfileparser_.html">"lib/tree/ast/microgrammar/<wbr>Microgrammar<wbr>Based<wbr>File<wbr>Parser"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_regex_regexfileparser_.html">"lib/tree/ast/regex/<wbr>Regex<wbr>File<wbr>Parser"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_tree_ast_typescript_typescriptfileparser_.html">"lib/tree/ast/typescript/<wbr>Type<wbr>Script<wbr>File<wbr>Parser"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_child_process_.html">"lib/util/child_<wbr>process"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_constructionutils_.html">"lib/util/construction<wbr>Utils"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_error_.html">"lib/util/error"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_exec_.html">"lib/util/exec"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_github_.html">"lib/util/git<wbr>Hub"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_logger_.html">"lib/util/logger"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_packagejson_.html">"lib/util/package<wbr>Json"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_pool_.html">"lib/util/pool"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_port_.html">"lib/util/port"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_redact_.html">"lib/util/redact"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_retry_.html">"lib/util/retry"</a>
+					</li>
+					<li class=" tsd-kind-external-module">
+						<a href="modules/_lib_util_spawn_.html">"lib/util/spawn"</a>
+					</li>
+				</ul>
+			</nav>
+			<nav class="tsd-navigation secondary menu-sticky">
+				<ul class="before-current">
+				</ul>
+			</nav>
+		</div>
+	</div>
+</div>
+<footer class="with-border-bottom">
+	<div class="container">
+		<h2>Legend</h2>
+		<div class="tsd-legend-group">
+			<ul class="tsd-legend">
+				<li class="tsd-kind-module"><span class="tsd-kind-icon">Module</span></li>
+				<li class="tsd-kind-object-literal"><span class="tsd-kind-icon">Object literal</span></li>
+				<li class="tsd-kind-variable"><span class="tsd-kind-icon">Variable</span></li>
+				<li class="tsd-kind-function"><span class="tsd-kind-icon">Function</span></li>
+				<li class="tsd-kind-function tsd-has-type-parameter"><span class="tsd-kind-icon">Function with type parameter</span></li>
+				<li class="tsd-kind-index-signature"><span class="tsd-kind-icon">Index signature</span></li>
+				<li class="tsd-kind-type-alias"><span class="tsd-kind-icon">Type alias</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-enum"><span class="tsd-kind-icon">Enumeration</span></li>
+				<li class="tsd-kind-enum-member"><span class="tsd-kind-icon">Enumeration member</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-enum"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-enum"><span class="tsd-kind-icon">Method</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-interface"><span class="tsd-kind-icon">Interface</span></li>
+				<li class="tsd-kind-interface tsd-has-type-parameter"><span class="tsd-kind-icon">Interface with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-interface"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-interface"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-interface"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-interface"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-class"><span class="tsd-kind-icon">Class</span></li>
+				<li class="tsd-kind-class tsd-has-type-parameter"><span class="tsd-kind-icon">Class with type parameter</span></li>
+				<li class="tsd-kind-constructor tsd-parent-kind-class"><span class="tsd-kind-icon">Constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class"><span class="tsd-kind-icon">Property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class"><span class="tsd-kind-icon">Method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class"><span class="tsd-kind-icon">Accessor</span></li>
+				<li class="tsd-kind-index-signature tsd-parent-kind-class"><span class="tsd-kind-icon">Index signature</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-constructor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited constructor</span></li>
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-inherited"><span class="tsd-kind-icon">Inherited accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-protected"><span class="tsd-kind-icon">Protected accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private property</span></li>
+				<li class="tsd-kind-method tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private method</span></li>
+				<li class="tsd-kind-accessor tsd-parent-kind-class tsd-is-private"><span class="tsd-kind-icon">Private accessor</span></li>
+			</ul>
+			<ul class="tsd-legend">
+				<li class="tsd-kind-property tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static property</span></li>
+				<li class="tsd-kind-call-signature tsd-parent-kind-class tsd-is-static"><span class="tsd-kind-icon">Static method</span></li>
+			</ul>
+		</div>
+	</div>
+</footer>
+<div class="container tsd-generator">
+	<p>Generated using <a href="http://typedoc.org/" target="_blank">TypeDoc</a></p>
+</div>
+<div class="overlay"></div>
+<script src="assets/js/main.js"></script>
+<script>if (location.protocol == 'file:') document.write('<script src="assets/js/search.js"><' + '/script>');</script>
+</body>
+</html>
